@@ -1,0 +1,123 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #111;
+  color: #fff;
+}
+
+/* Header */
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+  background-color: #222;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+}
+
+/* Nav */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #eb3e2b;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #1a1a1a;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #eb3e2b;
+  color: #000;
+  padding: 10px 20px;
+  text-decoration: none;
+  margin-top: 20px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Promo Button */
+#toggle-slide {
+  display: block;
+  margin: 30px auto 10px;
+  padding: 10px 20px;
+  background-color: #eb3e2b;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Promo Section */
+#promo-section {
+  display: none;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: glow 2s infinite alternate;
+}
+
+/* Products */
+.products {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.product-card {
+  background-color: #222;
+  border-radius: 8px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  opacity: 0; /* hidden for animation */
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #000;
+}
