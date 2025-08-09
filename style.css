@@ -6,7 +6,6 @@ body {
   color: #fff;
 }
 
-/* Header */
 .logo-container {
   display: flex;
   justify-content: space-between;
@@ -20,26 +19,13 @@ body {
   height: auto;
 }
 
-/* Nav */
-nav ul {
-  list-style: none;
+.user-section {
   display: flex;
-  gap: 30px;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  gap: 15px;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover {
-  color: #eb3e2b;
-}
-
-/* Hero Section */
+/* Hero */
 .hero {
   text-align: center;
   padding: 50px 20px;
@@ -57,20 +43,19 @@ nav a:hover {
   font-weight: bold;
 }
 
-/* Promo Button */
+/* Promo */
 #toggle-slide {
   display: block;
   margin: 30px auto 10px;
   padding: 10px 20px;
   background-color: #eb3e2b;
-  color: rgb(0, 0, 0);
+  color: #000;
   font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-/* Promo Section */
 #promo-section {
   display: none;
   max-width: 600px;
@@ -81,7 +66,6 @@ nav a:hover {
   text-align: center;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  animation: glow 2s infinite alternate;
 }
 
 /* Products */
@@ -92,10 +76,20 @@ nav a:hover {
 
 .product-grid {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
   gap: 30px;
-  margin-top: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.product-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.product-grid::-webkit-scrollbar-thumb {
+  background-color: #eb3e2b;
+  border-radius: 4px;
 }
 
 .product-card {
@@ -103,8 +97,9 @@ nav a:hover {
   border-radius: 8px;
   padding: 20px;
   width: 250px;
+  min-width: 250px;
   text-align: center;
-  opacity: 0; /* hidden for animation */
+  opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease;
 }
@@ -121,3 +116,245 @@ footer {
   padding: 20px;
   background-color: #000;
 }
+
+/* Hamburger & Dropdown */
+#hamburger {
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+}
+
+#hamburger-dropdown {
+  #hamburger-dropdown {
+  width: 180px; /* or even 200px if needed */
+}
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  background: linear-gradient(135deg, #eb3e2b, #eb3e2b);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 1000;
+  width: 150px;
+  text-align: left;
+}
+
+#hamburger-dropdown li {
+  margin: 10px 0;
+}
+
+#hamburger-dropdown a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  display: block;
+  border-radius: 5px;
+}
+
+#hamburger-dropdown a:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive (optional if needed) */
+@media (max-width: 768px) {
+  .logo-container {
+    flex-direction: row; /* keep horizontal */
+    justify-content: space-between; /* space between logo and user-section */
+    align-items: center; /* vertically center */
+    padding: 10px 20px; /* a bit less horizontal padding for small screens */
+  }
+  .user-section {
+    gap: 10px; /* optional: reduce gap on mobile */
+  }
+}
+
+/* General page styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+.logo-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.logo {
+  max-width: 180px;
+}
+
+/* Product grid styles */
+.products {
+  padding: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+/* Product details page styles */
+.product-detail-container {
+  max-width: 1100px;
+  margin: 20px auto 50px;
+  display: flex;
+  gap: 40px;
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.product-image {
+  flex: 1;
+}
+
+.product-image img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 10px;
+}
+
+.new-price {
+  color: #eb3e2b;
+  font-weight: bold;
+}
+
+.product-description {
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.esewa-box {
+  background-color: #0f9d58;
+  padding: 15px 25px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.esewa-box:hover {
+  background-color: #0c7c46;
+}
+
+.back-button {
+  display: inline-block;
+  margin: 20px auto 0;
+  background-color: #444;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: #666;
+}
+/* Horizontal scroll for products */
+.product-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 20px; /* space between items */
+}
+
+.product-card {
+  flex: 0 0 auto;
+  width: 220px; /* keep cards fixed width */
+}
+
+/* QR popup styles */
+#qr-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.qr-popup-content {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.qr-popup-content img {
+  max-width: 300px;
+  height: auto;
+}
+
+#qr-close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
+
+

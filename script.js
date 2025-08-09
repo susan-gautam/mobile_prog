@@ -1,5 +1,60 @@
+// Firebase imports
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+import { getDatabase, set, get, ref, update, remove } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+
+// Firebase config and init
+const firebaseConfig = {
+  apiKey: "AIzaSyAjxLDQ7PRo9Zr04QnlT6u_j4_8B-6q5KI",
+  authDomain: "mobile-prog-27a4a.firebaseapp.com",
+  projectId: "mobile-prog-27a4a",
+  storageBucket: "mobile-prog-27a4a.appspot.com",
+  messagingSenderId: "870551924930",
+  appId: "1:870551924930:web:f357ec3d5c16cd20ff0b5b",
+  measurementId: "G-SQWY28M5HQ"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+console.log(db);
+
+window.db = db;
+window.ref = ref;
+window.set = set;
+
+// Function to write user data
+function writeUserData(userID, firstname, lastname, email) {
+  set(ref(db, 'user/' + userID), {
+    firstname: firstname,
+    lastname: lastname,
+    email: email,
+  });
+}
+
+// Example usage
+writeUserData(1, "Susan");
+writeUserData(2, "KC");
+writeUserData(3, "susan@123.com");
+
+// Function to read user data
+function readUser() {
+  const userRef = ref(db, 'user');
+
+  get(userRef).then((snapshot) => {
+    snapshot.forEach((childSnapshot) => {
+      console.log(childSnapshot.val());
+    });
+  }).catch((error) => {
+    console.error("Error reading user data:", error);
+  });
+}
+
+// Call the read function
+readUser();
+
+
+
+// DOM and jQuery logic
 document.addEventListener("DOMContentLoaded", function () {
-  // Shop Now button confirmation & hover
   const shopButton = document.querySelector(".btn");
 
   shopButton.addEventListener("mouseover", function () {
@@ -18,22 +73,38 @@ document.addEventListener("DOMContentLoaded", function () {
       event.preventDefault();
     }
   });
+  // new product
+  $(document).ready(function() {
+    $("#gamingMouse").click(function() {
+        window.location.href = "product.html";
+    });
+});
 
-  // jQuery s
+// New product
+$(document).ready(function() {
+    // When the Gaming Mouse card is clicked, go to product.html
+    $("#gamingMouse").click(function() {
+        window.location.href = "product.html";
+    });
+});
+
+
+  // jQuery logic
   $(function () {
-    // Toggle promo section
     $("#toggle-slide").click(function () {
       $("#promo-section").slideToggle("slow");
     });
 
-    // Auto slide promo after 2s
     setTimeout(function () {
       $("#promo-section").slideDown("slow");
     }, 2000);
 
-    // Simple fade-in for product cards
     $(".product-card").css("opacity", 0).each(function (i) {
       $(this).delay(500 * i).fadeTo(800, 1);
     });
   });
 });
+
+// Pop-up QR
+
+
