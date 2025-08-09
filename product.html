@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="module" src="script.js"></script>
+</head>
+<body>
+
+<!-- Header -->
+<header class="logo-container">
+  <img src="images/Logo.png" alt="One.Suppliers Logo" class="logo" />
+  <div class="user-section"></div>
+</header>
+
+<!-- Back to Home Button -->
+<div style="text-align: center;">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+
+<!-- Product Detail Section -->
+<div class="product-detail-container">
+  <!-- Left: Product Image -->
+  <div class="product-image">
+    <img src="images/Aj039 Black.png" alt="Gaming Mouse">
+  </div>
+
+  <!-- Right: Product Info -->
+  <div class="product-info">
+    <div class="product-title">Gaming Mouse - Precision & RGB Lighting</div>
+    <div class="product-price">
+      <span class="old-price">Rs. 3400</span>
+      <span class="new-price">Rs. 2999</span>
+    </div>
+    <div class="product-description">
+      <p>High-performance gaming mouse with precision tracking</p>
+      <p>Customizable buttons, and vibrant RGB lighting.</p> 
+      <p>Perfect for FPS and MOBA gamer</p>
+      <p>Ergonomic design that ensures comfort during long sessions</p>
+      <p>Plug-and-play with no driver needed</p>
+    </div>
+    <a href="#" class="esewa-box">Pay with eSewa</a>
+  </div>
+</div>
+
+<!-- QR Code Popup -->
+<div id="qr-popup" style="display:none;">
+  <div class="qr-popup-content">
+    <span id="qr-close">&times;</span>
+    <img src="images\QR.png" alt="eSewa QR Code" />
+  </div>
+</div>
+
+
+<script>
+  $(document).ready(function() {
+  $('.esewa-box').click(function(e) {
+    e.preventDefault(); // prevent default link behavior
+    $('#qr-popup').fadeIn();
+  });
+
+  $('#qr-close').click(function() {
+    $('#qr-popup').fadeOut();
+  });
+
+  // Also close popup if user clicks outside the content box
+  $('#qr-popup').click(function(e) {
+    if (e.target == this) {
+      $(this).fadeOut();
+    }
+  });
+});
+</script>
+
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 One.Suppliers. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
