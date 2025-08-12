@@ -120,8 +120,16 @@
       `;
     }
 
-    document.body.appendChild(dropdown);
-    dropdown.style.display = "none";
+    document.querySelector(".user-section").appendChild(dropdown);
+
+    // Show by default on desktop, hide on mobile
+    if (window.innerWidth > 768) {
+      dropdown.style.display = "flex"; // visible as normal nav
+    } else {
+      dropdown.style.display = "none"; // hamburger toggle on mobile
+    }
+
+
 
     // Toggle dropdown
     hamburger.addEventListener("click", function () {
